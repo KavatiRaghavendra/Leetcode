@@ -1,0 +1,41 @@
+
+public class Main
+{
+	public static void main(String[] args) {
+		System.out.println("Hello World");
+		print1toN(5);
+		System.out.println();
+		System.out.println(sum(5));
+		System.out.println(sum1(5,0));
+		String str="CarraC";
+		System.out.println(isPalindrome(str,0,str.length()-1));
+		System.out.println(sumOfDigits(1991,0));
+	}
+	static  void print1toN(int n){
+	    if(n==0)
+	    return;
+	     System.out.print(n+" ");
+	    print1toN(n-1);
+	    System.out.print(n+" ");
+	}
+	static int sum(int n){
+	    if(n<=1)
+	    return n;
+	    return n+sum(n-1);
+	}
+	static int sum1(int n,int k){
+	    if(n<=1)
+	    return k+n;
+	    return sum1(n-1,k+n);
+	}
+	static boolean isPalindrome(String str,int left,int right){
+	    if(str.charAt(left)!=str.charAt(right))
+	    return false;
+	    if(left<=right)return true;
+	    return isPalindrome(str,left+1,right-1);
+	}
+	static int sumOfDigits(int n,int sum){
+	    if(n<=0) return n+sum;
+	    return sumOfDigits(n/10,sum+n%10);
+	}
+}
